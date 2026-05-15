@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NURI GLOBAL — Coffenesia & Coconutnesia</title>
+
+    <!-- ============================================= -->
+    <!-- FAVICON: Replace href below with your own     -->
+    <!-- ============================================= -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- Page Transition Overlay -->
+    <div class="transition-overlay" id="transitionOverlay"></div>
+
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-logo">NURI<span>GLOBAL</span></div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======================================================== -->
+    <!-- LANDING PAGE                                              -->
+    <!-- ======================================================== -->
+    <section id="landing" class="screen active">
+        <div class="landing-topbar">
+            <div class="landing-logo">
+                <span class="logo-nuri">NURI</span><span class="logo-global">GLOBAL</span>
+            </div>
+            <button class="lang-btn" id="langBtnLanding" onclick="toggleLanguage()">
+                <span class="lang-active">EN</span><span class="lang-sep">/</span><span class="lang-opt">ID</span>
+            </button>
+        </div>
+
+        <div class="split-container">
+            <!-- LEFT — COFFENESIA -->
+            <div class="split-side coffee-side" onclick="navigateTo('coffenesia')">
+                <div class="split-bg"></div>
+                <div class="split-overlay"></div>
+                <div class="split-content">
+                    <span class="split-eyebrow" data-i18n="landing.coffee.eyebrow">PREMIUM INDONESIAN COFFEE</span>
+                    <h2 class="split-prefix">NURI</h2>
+                    <h1 class="split-brand">COFFENESIA</h1>
+                    <p class="split-tagline" data-i18n="landing.coffee.tagline">The Essence of Indonesian Coffee
+                        Heritage</p>
+                    <div class="split-cta">
+                        <span data-i18n="landing.cta">Explore</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT — COCONUTNESIA -->
+            <div class="split-side coconut-side" onclick="navigateTo('coconutnesia')">
+                <div class="split-bg"></div>
+                <div class="split-overlay"></div>
+                <div class="split-content">
+                    <span class="split-eyebrow" data-i18n="landing.coconut.eyebrow">PURE INDONESIAN COCONUT</span>
+                    <h2 class="split-prefix">NURI</h2>
+                    <h1 class="split-brand">COCONUTNESIA</h1>
+                    <p class="split-tagline" data-i18n="landing.coconut.tagline">The Purity of Indonesian Coconut Nature
+                    </p>
+                    <div class="split-cta">
+                        <span data-i18n="landing.cta">Explore</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Center Divider Logo -->
+        <div class="split-center-logo">
+            <div class="center-logo-circle">NG</div>
+        </div>
+
+        <div class="landing-bottom">
+            <p data-i18n="landing.bottom">Choose your experience</p>
+        </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- COFFENESIA PAGE                                           -->
+    <!-- ======================================================== -->
+    <section id="coffenesia" class="screen brand-page coffee-theme">
+
+        <!-- Navigation -->
+        <nav class="brand-nav" id="coffeeNav">
+            <div class="nav-brand">
+                <span class="nav-brand-nuri">NURI</span> <span class="nav-brand-name">COFFENESIA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#coffee-hero" data-i18n="nav.brand">Brand</a>
+                <a href="#coffee-about" data-i18n="nav.about">About Us</a>
+                <a href="#coffee-activity" data-i18n="nav.activity">Activity</a>
+                <a href="#coffee-shop" data-i18n="nav.shop">Shop</a>
+            </div>
+            <div class="nav-actions">
+                <button class="lang-btn-sm" onclick="toggleLanguage()">EN / ID</button>
+                <button class="back-btn" onclick="navigateTo('landing')">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-i18n="nav.back">Home</span>
+                </button>
+                <button class="mobile-menu-btn" onclick="openMobileMenu('coffee')">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="coffeeMobileMenu">
+            <div class="mobile-menu-header">
+                <span>NURI COFFENESIA</span>
+                <button onclick="closeMobileMenu('coffee')"><i class="fas fa-times"></i></button>
+            </div>
+            <a href="#coffee-hero" onclick="closeMobileMenu('coffee')" data-i18n="nav.brand">Brand</a>
+            <a href="#coffee-about" onclick="closeMobileMenu('coffee')" data-i18n="nav.about">About Us</a>
+            <a href="#coffee-activity" onclick="closeMobileMenu('coffee')" data-i18n="nav.activity">Activity</a>
+            <a href="#coffee-shop" onclick="closeMobileMenu('coffee')" data-i18n="nav.shop">Shop</a>
+            <button class="mobile-back-btn" onclick="navigateTo('landing');closeMobileMenu('coffee')"
+                data-i18n="nav.back">← Home</button>
+            <button class="lang-btn-sm" onclick="toggleLanguage()">EN / ID</button>
+        </div>
+
+        <!-- Hero -->
+        <div id="coffee-hero" class="brand-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-eyebrow" data-i18n="coffee.hero.eyebrow">INDONESIAN COFFEE HERITAGE</span>
+                <h1 class="hero-title">NURI <span class="accent-text">COFFENESIA</span></h1>
+                <p class="hero-subtitle" data-i18n="coffee.hero.subtitle">From the volcanic highlands of Indonesia to
+                    your cup</p>
+                <a href="#coffee-about" class="scroll-indicator">
+                    <span data-i18n="hero.scroll">Discover Our Story</span>
+                    <div class="scroll-line"></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- About / History -->
+        <div id="coffee-about" class="section about-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-i18n="coffee.about.label">OUR STORY</span>
+                    <h2 class="section-title" data-i18n="coffee.about.title">A Legacy of Flavor</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p data-i18n="coffee.about.p1">Founded in the heart of Indonesia's coffee belt, Nuri Coffenesia
+                            represents the pinnacle of Indonesian coffee craftsmanship. Our journey began with a simple
+                            vision — to bring the world the finest beans from the archipelago's volcanic highlands.</p>
+                        <p data-i18n="coffee.about.p2">Each bean tells a story of generations of farmers who have
+                            perfected the art of cultivation on the fertile slopes. From Sumatra's Mandheling to Java's
+                            Preanger, we source only the most exceptional lots, ensuring every cup delivers an
+                            unforgettable experience.</p>
+                        <p data-i18n="coffee.about.p3">Our commitment extends beyond quality — we believe in sustainable
+                            farming, fair partnerships, and preserving the cultural heritage that makes Indonesian
+                            coffee truly extraordinary.</p>
+                    </div>
+                    <div class="about-image reveal">
+                        <!-- IMAGE: Replace src with your own coffee heritage image -->
+                        <img src="http://static.photos/food/640x360/10" alt="Coffee Heritage">
+                        <div class="image-frame"></div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline reveal">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2018</span>
+                        <span class="timeline-text" data-i18n="coffee.timeline.1">First plantation established in
+                            Sumatra highlands</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2019</span>
+                        <span class="timeline-text" data-i18n="coffee.timeline.2">Expanded sourcing to Java & Sulawesi
+                            regions</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2020</span>
+                        <span class="timeline-text" data-i18n="coffee.timeline.3">Launched Nuri Coffenesia brand
+                            globally</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2022</span>
+                        <span class="timeline-text" data-i18n="coffee.timeline.4">Received international specialty
+                            coffee recognition</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2024</span>
+                        <span class="timeline-text" data-i18n="coffee.timeline.5">Premium product line launched
+                            worldwide</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity -->
+        <div id="coffee-activity" class="section activity-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-i18n="coffee.activity.label">WHAT WE DO</span>
+                    <h2 class="section-title" data-i18n="coffee.activity.title">Our Activities</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="activity-grid">
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                        <h3 data-i18n="coffee.act.1.title">Cultivation</h3>
+                        <p data-i18n="coffee.act.1.text">Sustainable coffee farming across Indonesia's volcanic highland
+                            regions with traditional methods</p>
+                    </div>
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-fire"></i></div>
+                        <h3 data-i18n="coffee.act.2.title">Roasting</h3>
+                        <p data-i18n="coffee.act.2.text">Artisanal roasting techniques that unlock each bean's complex
+                            flavor potential perfectly</p>
+                    </div>
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-mug-hot"></i></div>
+                        <h3 data-i18n="coffee.act.3.title">Tasting</h3>
+                        <p data-i18n="coffee.act.3.text">Curated cupping sessions to discover and appreciate
+                            extraordinary flavor profiles</p>
+                    </div>
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-handshake"></i></div>
+                        <h3 data-i18n="coffee.act.4.title">Partnership</h3>
+                        <p data-i18n="coffee.act.4.text">Fair trade relationships empowering local farming communities
+                            across the archipelago</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shop / Products -->
+        <div id="coffee-shop" class="section shop-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-i18n="coffee.shop.label">OUR PRODUCTS</span>
+                    <h2 class="section-title" data-i18n="coffee.shop.title">The Collection</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <!-- IMAGE: Replace with your product image -->
+                            <img src="http://static.photos/food/320x240/11" alt="Sumatra Arabica">
+                            <div class="product-badge">PREMIUM</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coffee.prod.1.name">Sumatra Arabica</h3>
+                            <p data-i18n="coffee.prod.1.desc">Single origin from Mandheling highlands, rich &
+                                full-bodied</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Sumatra Arabica" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/food/320x240/12" alt="Java Robusta">
+                            <div class="product-badge">CLASSIC</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coffee.prod.2.name">Java Robusta</h3>
+                            <p data-i18n="coffee.prod.2.desc">Bold & intense, perfect for espresso lovers everywhere</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Java Robusta" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/food/320x240/13" alt="Espresso Reserve">
+                            <div class="product-badge">RESERVE</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coffee.prod.3.name">Espresso Reserve</h3>
+                            <p data-i18n="coffee.prod.3.desc">Signature blend crafted for the perfect espresso
+                                experience</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Espresso Reserve" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/food/320x240/14" alt="Cold Brew">
+                            <div class="product-badge">NEW</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coffee.prod.4.name">Cold Brew Concentrate</h3>
+                            <p data-i18n="coffee.prod.4.desc">Ready-to-drink cold brew, smooth and refreshingly bold</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Cold Brew Concentrate" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/food/320x240/15" alt="Kopi Luwak">
+                            <div class="product-badge">EXCLUSIVE</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coffee.prod.5.name">Kopi Luwak Special</h3>
+                            <p data-i18n="coffee.prod.5.desc">The world's rarest coffee, ethically sourced & premium
+                                grade</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Kopi Luwak Special" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/food/320x240/16" alt="Gift Set">
+                            <div class="product-badge">GIFT</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coffee.prod.6.name">Heritage Gift Set</h3>
+                            <p data-i18n="coffee.prod.6.desc">Curated collection of our finest beans in luxury packaging
+                            </p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Heritage Gift Set" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="brand-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>NURI <span class="accent-text">COFFENESIA</span></h4>
+                        <p data-i18n="coffee.footer.desc">Indonesia's finest coffee, from our highlands to your cup.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.contact">Contact</h4>
+                        <p><i class="fas fa-envelope"></i> coffee@nuriglobal.com</p>
+                        <p><i class="fas fa-phone"></i> +62 812 3456 7890</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.follow">Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Nuri Global. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- COCONUTNESIA PAGE                                         -->
+    <!-- ======================================================== -->
+    <section id="coconutnesia" class="screen brand-page coconut-theme">
+
+        <!-- Navigation -->
+        <nav class="brand-nav" id="coconutNav">
+            <div class="nav-brand">
+                <span class="nav-brand-nuri">NURI</span> <span class="nav-brand-name">COCONUTNESIA</span>
+            </div>
+            <div class="nav-links">
+                <a href="#coconut-hero" data-i18n="nav.brand">Brand</a>
+                <a href="#coconut-about" data-i18n="nav.about">About Us</a>
+                <a href="#coconut-activity" data-i18n="nav.activity">Activity</a>
+                <a href="#coconut-shop" data-i18n="nav.shop">Shop</a>
+            </div>
+            <div class="nav-actions">
+                <button class="lang-btn-sm" onclick="toggleLanguage()">EN / ID</button>
+                <button class="back-btn" onclick="navigateTo('landing')">
+                    <i class="fas fa-arrow-left"></i>
+                    <span data-i18n="nav.back">Home</span>
+                </button>
+                <button class="mobile-menu-btn" onclick="openMobileMenu('coconut')">
+                    <i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="coconutMobileMenu">
+            <div class="mobile-menu-header">
+                <span>NURI COCONUTNESIA</span>
+                <button onclick="closeMobileMenu('coconut')"><i class="fas fa-times"></i></button>
+            </div>
+            <a href="#coconut-hero" onclick="closeMobileMenu('coconut')" data-i18n="nav.brand">Brand</a>
+            <a href="#coconut-about" onclick="closeMobileMenu('coconut')" data-i18n="nav.about">About Us</a>
+            <a href="#coconut-activity" onclick="closeMobileMenu('coconut')" data-i18n="nav.activity">Activity</a>
+            <a href="#coconut-shop" onclick="closeMobileMenu('coconut')" data-i18n="nav.shop">Shop</a>
+            <button class="mobile-back-btn" onclick="navigateTo('landing');closeMobileMenu('coconut')"
+                data-i18n="nav.back">← Home</button>
+            <button class="lang-btn-sm" onclick="toggleLanguage()">EN / ID</button>
+        </div>
+
+        <!-- Hero -->
+        <div id="coconut-hero" class="brand-hero">
+            <div class="hero-bg"></div>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <span class="hero-eyebrow" data-i18n="coconut.hero.eyebrow">INDONESIAN COCONUT PURITY</span>
+                <h1 class="hero-title">NURI <span class="accent-text">COCONUTNESIA</span></h1>
+                <p class="hero-subtitle" data-i18n="coconut.hero.subtitle">The natural goodness of Indonesia's tropical
+                    paradise</p>
+                <a href="#coconut-about" class="scroll-indicator">
+                    <span data-i18n="hero.scroll">Discover Our Story</span>
+                    <div class="scroll-line"></div>
+                </a>
+            </div>
+        </div>
+
+        <!-- About / History -->
+        <div id="coconut-about" class="section about-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-i18n="coconut.about.label">OUR STORY</span>
+                    <h2 class="section-title" data-i18n="coconut.about.title">Nature's Finest Gift</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-text reveal">
+                        <p data-i18n="coconut.about.p1">Nuri Coconutnesia was born from the lush tropical landscapes of
+                            Indonesia, where coconut trees have been a symbol of life and prosperity for centuries. We
+                            honor this heritage by delivering the purest coconut products to the world.</p>
+                        <p data-i18n="coconut.about.p2">Our coconuts are hand-harvested from organic plantations across
+                            Java, Bali, and Sulawesi. Each product undergoes meticulous cold-press processing to
+                            preserve the natural nutrients and authentic flavor that nature intended.</p>
+                        <p data-i18n="coconut.about.p3">We are committed to sustainable agriculture, zero-waste
+                            production, and empowering the coastal communities that make our mission possible. Every
+                            purchase supports a healthier planet and a thriving community.</p>
+                    </div>
+                    <div class="about-image reveal">
+                        <!-- IMAGE: Replace src with your own coconut heritage image -->
+                        <img src="http://static.photos/nature/640x360/20" alt="Coconut Heritage">
+                        <div class="image-frame"></div>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="timeline reveal">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2018</span>
+                        <span class="timeline-text" data-i18n="coconut.timeline.1">Organic coconut plantation
+                            established in Java</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2019</span>
+                        <span class="timeline-text" data-i18n="coconut.timeline.2">Cold-press facility launched with
+                            zero-waste system</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2020</span>
+                        <span class="timeline-text" data-i18n="coconut.timeline.3">Nuri Coconutnesia brand launched
+                            internationally</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2022</span>
+                        <span class="timeline-text" data-i18n="coconut.timeline.4">Organic certification & global
+                            distribution achieved</span>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <span class="timeline-year">2024</span>
+                        <span class="timeline-text" data-i18n="coconut.timeline.5">Full product line expansion across
+                            30+ countries</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity -->
+        <div id="coconut-activity" class="section activity-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-i18n="coconut.activity.label">WHAT WE DO</span>
+                    <h2 class="section-title" data-i18n="coconut.activity.title">Our Activities</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="activity-grid">
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-tree"></i></div>
+                        <h3 data-i18n="coconut.act.1.title">Organic Farming</h3>
+                        <p data-i18n="coconut.act.1.text">Sustainable coconut cultivation on pristine tropical
+                            plantations across Indonesia</p>
+                    </div>
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-flask"></i></div>
+                        <h3 data-i18n="coconut.act.2.title">Cold Processing</h3>
+                        <p data-i18n="coconut.act.2.text">State-of-the-art cold-press technology preserving maximum
+                            natural nutrients</p>
+                    </div>
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+                        <h3 data-i18n="coconut.act.3.title">Export</h3>
+                        <p data-i18n="coconut.act.3.text">Premium coconut products distributed to over 30 countries
+                            worldwide</p>
+                    </div>
+                    <div class="activity-card reveal">
+                        <div class="card-icon"><i class="fas fa-recycle"></i></div>
+                        <h3 data-i18n="coconut.act.4.title">Sustainability</h3>
+                        <p data-i18n="coconut.act.4.text">Zero-waste production & community empowerment across coastal
+                            regions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shop / Products -->
+        <div id="coconut-shop" class="section shop-section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-label" data-i18n="coconut.shop.label">OUR PRODUCTS</span>
+                    <h2 class="section-title" data-i18n="coconut.shop.title">The Collection</h2>
+                    <div class="section-line"></div>
+                </div>
+                <div class="products-grid">
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/nature/320x240/21" alt="Virgin Coconut Oil">
+                            <div class="product-badge">BESTSELLER</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coconut.prod.1.name">Virgin Coconut Oil</h3>
+                            <p data-i18n="coconut.prod.1.desc">Pure cold-pressed VCO, organic & unrefined for maximum
+                                benefits</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Virgin Coconut Oil" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/nature/320x240/22" alt="Coconut Sugar">
+                            <div class="product-badge">ORGANIC</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coconut.prod.2.name">Organic Coconut Sugar</h3>
+                            <p data-i18n="coconut.prod.2.desc">Natural low-glycemic sweetener, perfect healthy
+                                alternative</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Organic Coconut Sugar" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/nature/320x240/23" alt="Coconut Water">
+                            <div class="product-badge">FRESH</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coconut.prod.3.name">Coconut Water Premium</h3>
+                            <p data-i18n="coconut.prod.3.desc">Hydrating natural electrolyte drink from young green
+                                coconuts</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Coconut Water Premium" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/nature/320x240/24" alt="Coconut Milk">
+                            <div class="product-badge">PURE</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coconut.prod.4.name">Coconut Milk Fresh</h3>
+                            <p data-i18n="coconut.prod.4.desc">Rich & creamy coconut milk for cooking, baking &
+                                beverages</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Coconut Milk Fresh" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/nature/320x240/25" alt="Coconut Flour">
+                            <div class="product-badge">GF</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coconut.prod.5.name">Coconut Flour Organic</h3>
+                            <p data-i18n="coconut.prod.5.desc">Gluten-free, high-fiber flour for healthy baking &
+                                cooking</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Coconut Flour Organic" class="order-btn"
+                                data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                    <div class="product-card reveal">
+                        <div class="product-image">
+                            <img src="http://static.photos/nature/320x240/26" alt="Coconut Crafts">
+                            <div class="product-badge">HANDMADE</div>
+                        </div>
+                        <div class="product-info">
+                            <h3 data-i18n="coconut.prod.6.name">Coconut Craft Collection</h3>
+                            <p data-i18n="coconut.prod.6.desc">Handcrafted artisan goods from upcycled coconut shell
+                                materials</p>
+                            <a href="mailto:order@nuriglobal.com?subject=Order: Coconut Craft Collection"
+                                class="order-btn" data-i18n="shop.order">Order via Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="brand-footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>NURI <span class="accent-text">COCONUTNESIA</span></h4>
+                        <p data-i18n="coconut.footer.desc">Indonesia's purest coconut, from our tropics to your home.
+                        </p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.contact">Contact</h4>
+                        <p><i class="fas fa-envelope"></i> coconut@nuriglobal.com</p>
+                        <p><i class="fas fa-phone"></i> +62 812 3456 7891</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.follow">Follow Us</h4>
+                        <div class="social-links">
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Nuri Global. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- FLOATING WHATSAPP                                         -->
+    <!-- ======================================================== -->
+    <!-- WHATSAPP: Replace the phone number below with your own    -->
+    <a href="https://wa.me/6281234567890" class="whatsapp-float" target="_blank" rel="noopener"
+        aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-tooltip" data-i18n="wa.chat">Chat with us</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
